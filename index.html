@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <title>Some random web page</title>
+
+        <script>
+
+          window.addEventListener('polymer-ready',function() {
+            console.log('recevied polymer-ready in inline script');
+            document.querySelector('#polymer-ready-indicator').innerText='Polymer ready from inline script!';
+          });
+
+          window.addEventListener('WebComponentsReady',function() {
+            console.log('recevied WebComponentsReady in inline script');
+            document.querySelector('#webcomponents-ready-indicator').innerText='web components ready from inline script!';
+          });
+
+        </script>
+
+        <link rel='import' href='my-element.html'>
+    </head>
+    <body>
+      <h1>Testing my-element communication from Content Script.</h1>
+      <hr>
+      <h2>Discussion.</h2>
+      <p>Click the page action button next to the URL.</p>
+
+      <p>It should inject the content script into this page.</p>
+
+      <p>I tried many things to get event-based notification when polymer
+      is ready, but nothing sensible seems to work.</p>
+
+      <p>The only thing that did work was using inline script in the
+      page to set the state of an element, and then test that state in
+      the content script. To get an event from that, I'd have to use a
+      MutationObserver on the element - really?</p>
+
+      <p>In order to demonstrate that setting a property on an element
+      doesn't work, I set a five second timeout and then try to set the
+      property and the attribute, with different values, so that we can
+      see which ones trigger the Changed handler.</p>
+
+      <hr>
+
+      <p>These are set from script in this web page in order to see when
+      events are fired.</p>
+
+      <div id='polymer-ready-indicator'>
+        polymer NOT ready
+      </div>
+      <hr>
+      <div id='webcomponents-ready-indicator'>
+        web components NOT ready
+      </div>
+
+      <hr>
+      <my-element></my-element>
+      <hr>
+    </body>
+</html>

@@ -1,0 +1,44 @@
+<link rel='import' href='../bower_components/polymer/polymer.html'>
+
+<polymer-element name='my-element' attributes='myproperty'>
+  <template>
+    <style>
+    </style>
+    <div id='container'>
+      <div id='property_changed'>
+        <h2>Propery changes</h2>
+      </div>
+    </div><!-- container -->
+  </template>
+
+  <script>
+    (function myElement() {
+      // private properties
+
+      Polymer({
+        created: function() {
+          this.myproperty=''; // hint for text
+        },
+
+        mypropertyChanged: function(oldValue,newValue) {
+          console.log('ME:mypropertyChange:',newValue);
+          // create a paragraph for the new value
+          // and appent it to the propery_changed div
+          var paragraphNode=document.createElement('p');
+          paragraphNode.innerText=newValue;
+          this.$.property_changed.appendChild(paragraphNode);
+
+          this.fire('my-property-changed');
+        },
+
+        ready: function() {
+          console.log('ME:ready');
+          // the following event is never received
+          this.fire('my-element-ready');
+        }
+      }); // Polymer()
+
+    })();
+
+  </script>
+</polymer-element>
