@@ -17,11 +17,11 @@
 
       Polymer({
         created: function() {
-          this.myproperty=''; // hint for text
+          this.myproperty='unset'; // hint for text
         },
 
         mypropertyChanged: function(oldValue,newValue) {
-          console.log('ME:mypropertyChange:',newValue);
+          console.log('ME:mypropertyChange:',oldValue+"->"+newValue);
           // create a paragraph for the new value
           // and appent it to the propery_changed div
           var paragraphNode=document.createElement('p');
