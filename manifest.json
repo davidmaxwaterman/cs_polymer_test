@@ -29,17 +29,5 @@
     "index.html",
     "my-element.html",
     "bower_components/*/*"
-  ],
-  "content_scripts": [
-    {
-      "matches": [
-        "*://localhost/index.html"
-      ],
-      "run_at": "document_start",
-      "all_frames": false,
-      "js": [
-        "scripts/contentScript.js"
-      ]
-    }
   ]
 }
