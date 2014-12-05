@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
     <head>
-        <meta charset='utf-8'>
+        <meta charset="utf-8">
         <title>Some random web page</title>
 
         <script>
@@ -18,7 +18,7 @@
 
         </script>
 
-        <link rel='import' href='my-element.html'>
+        <link rel="import" href="my-element.html">
     </head>
     <body>
       <h1>Testing my-element communication from Content Script.</h1>
@@ -46,16 +46,15 @@
       <p>These are set from script in this web page in order to see when
       events are fired.</p>
 
-      <div id='polymer-ready-indicator'>
+      <div id="polymer-ready-indicator">
         polymer NOT ready
       </div>
       <hr>
-      <div id='webcomponents-ready-indicator'>
+      <div id="webcomponents-ready-indicator">
         web components NOT ready
       </div>
 
-      <hr>
-      <my-element></my-element>
+      <hr id="append-here">
       <hr>
     </body>
 </html>
